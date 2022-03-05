@@ -1,0 +1,368 @@
+:root{
+    --Dark-Gray: hsl(0, 0%, 63%);
+    --Black: hsl(0, 0%, 0%);
+    --White: hsl(0, 0%, 100%);
+    --Very-Dark-Gray: hsl(0, 0%, 27%);
+
+    --image-1: url(images/desktop-image-hero-1.jpg);
+    --image-2: url(images/desktop-image-hero-2.jpg);
+    --image-3: url(images/desktop-image-hero-3.jpg);
+}
+@keyframes nav-animation{
+    0%{
+        transform: translateX(-100px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+@keyframes nav-gone{
+    0%{
+        background: var(--White);
+        padding: 2em 10%;
+        transform: translateX(0);
+    }
+    100%{
+        background: var(--White);
+        transform: translateX(600px);
+    }
+}
+@keyframes box-animation{
+    0%{
+        height: 0;
+        z-index: 2;
+    }
+    50%{
+        height: 50%;
+    }
+    100%{
+        height: 100%;
+        z-index: 2;
+    }
+}
+@keyframes hero-left{
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+        padding: 3em 0;
+        z-index: 3;
+
+    }
+    50%{
+        transform: translateX(0);
+        opacity: 1;
+        padding: 3em 0;
+    }
+    100% {
+        display: flex;
+        padding: 0;
+        z-index: 3;
+    }
+}
+@keyframes hero-right{
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+        padding: 3em 0;
+        z-index: 3;
+
+    }
+    50%{
+        transform: translateX(0);
+        opacity: 1;
+        padding: 3em 0;
+    }
+    100% {
+        display: flex;
+        padding: 0;
+        z-index: 3;
+    }
+}
+*, *::before, *::after{
+    box-sizing: border-box;
+    font-family: 'Spartan', sans-serif;
+    list-style: none;
+    text-decoration: none;
+    padding: 0;
+    border: none;
+    margin: 0;
+}
+nav{
+    display: flex;
+    width: 100%;
+    padding: 1em 10%;
+    position: absolute;
+    z-index: 3;
+}
+nav ul{
+    display: flex;
+    gap: 2em;
+    margin-left: 4em;
+}
+nav a{
+    color: var(--White);
+    position: relative;
+}
+nav a:hover::before{
+    content: "";
+    background: var(--White);
+    width: 50%;
+    height: 1.6px;
+    position: absolute;
+    top: 1.6em;
+    left: 25%;
+}
+#mobile-menu, .hamburger, .close{
+    display: none;
+    cursor: pointer;
+}
+.hero-container{
+    height: 32em;
+    position: relative;
+    z-index: 1;
+}
+
+.animate-left{
+    animation: hero-left 3s;
+}
+
+.animate-right{
+    animation: hero-right 3s;
+}
+.image1{
+    background: var(--image-1) no-repeat center;
+}
+.image2{
+    background: var(--image-2) no-repeat center;
+}
+.image3{
+    background: var(--image-3) no-repeat center;
+}
+.image-container{
+    width: 58%;
+    background-size: cover;
+}
+.hero-container header{
+    width: 42%;
+    padding: 7% 6%;
+}
+.hero-container h1{
+    margin-bottom: 0.6em;
+}
+.hero-container p{
+    color: var(--Dark-Gray);
+    margin-bottom: 2em;
+}
+.shop{
+    cursor: pointer;
+}
+.shop a{
+    color: var(--Very-Dark-Gray);
+    text-transform: uppercase;
+    letter-spacing: 0.6em;
+    margin-right: 1.2em;
+}
+.shop a:hover{
+    color: var(--Dark-Gray);
+}
+.animated-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 32em;
+    position: absolute;
+    top: 0;
+}
+.boxes{
+    background: var(--White);
+    width: 100%;
+}
+
+.animate-box{
+    animation: box-animation 3s;
+}
+.hero-changer{
+    background: var(--Very-Dark-Gray);
+    display: flex;
+    justify-content: space-between;
+    height: 4em;
+    width: 12%;
+    border-radius: 0.2em;
+    position: absolute;
+    left: 58%;
+    top: 28em;
+    z-index: 3;
+}
+.hero-changer img{
+    cursor: pointer;
+    padding: 1em 2em;
+}
+.hero-changer img:hover{
+    background: var(--Black);
+    border-radius: 0.2em;
+}
+.about-furniture{
+    display: flex;
+}
+.about-furniture img{
+    width: 30%;
+}
+.about-furniture div{
+    width: 40%;
+    padding: 5% 3%;
+}
+.about-furniture h2{
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.6em;
+}
+.about-furniture p{
+    color: var(--Dark-Gray);
+    font-size: 14px;
+}
+@media(max-width: 1330px){
+    .image-container{
+        width: 62%;
+    }
+    .hero-container header{
+        width: 38%;
+        padding: 5%;
+    }
+    .hero-changer{
+        width: 14%;
+        left: 62%;
+    }
+    .about-furniture img{
+        width: 24%;
+    }
+    .about-furniture div{
+        width: 52%;
+    }
+}
+@media(max-width: 1110px){
+    .hero-container{
+        height: auto;
+        flex-direction: column;
+    }
+    .image-container{
+        width: 100%;
+        height: 32em;
+    }
+    .hero-container header{
+        background: hsla(0, 0%, 100%, 0.8);
+        width: 100%;
+        height: 14em;
+        padding: 3% 5%;
+        position: absolute;
+        bottom: 0;
+    }
+    .hero-container p{
+        margin-bottom: 1em;
+    }
+    .hero-changer{
+        width: 10em;
+        top: 14em;
+        left: auto;
+        right: 0;
+    }
+    .about-furniture{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 0.8fr 1fr;
+    }
+    .about-furniture img{
+        width: 100%;
+        height: 100%;
+        grid-row: 2;
+    }
+    .about-furniture div{
+        grid-column: span 2;
+        text-align: center;
+        width: 100%;
+    }
+}
+@media(max-width: 740px){
+    .hero-container h1{
+        font-size: 25px;
+    }
+    .hero-changer{
+        width: 8em;
+        height: 3em;
+        top: 15em;
+    }
+}
+@media(max-width: 640px){
+    nav ul{
+        display: none;
+        margin-left: 2em;
+    }
+    nav a{
+        color: var(--Black);
+        font-size: 14px;
+        font-weight: 700;
+    }
+    .hamburger{
+        display: block;
+    }
+    .logo{
+        margin: 0 auto;
+    }
+    #mobile-menu:checked ~ .mobile-menu .hamburger{
+        display: none;
+    }
+    #mobile-menu:checked ~ .logo{
+        display: none;
+    }
+    #mobile-menu:checked ~ .mobile-menu .close{
+        display: block;
+    }
+    #mobile-menu:checked ~ ul{
+        display: flex;
+    }
+    .active{
+        background: var(--White);
+        animation: nav-animation 2s;
+        padding: 2em 10%;
+        z-index: 5;
+    }
+    .menu-bg{
+        background: hsla(0, 0%, 0%, 0.6);
+        display: none;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 4;
+    }
+    .inactive{
+        animation: nav-gone 2s;
+    }
+    .image-container{
+        background-position: center;
+        height: 16em;
+    }
+    .hero-container header{
+        background: none;
+        height: 18em;
+        position: static;
+    }
+    .animated-box{
+        height: 34em;
+    }
+    .hero-changer{
+        top: 13em;
+    }
+    .about-furniture{
+        display: flex;
+        flex-direction: column;
+    }
+    .about-furniture img{
+        height: auto;
+    }
+    .about-furniture div{
+        text-align: left;
+    }
+}
